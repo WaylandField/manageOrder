@@ -11,7 +11,7 @@ app.BatchModel = Backbone.Model.extend({
     url:'/api/v1/batch',
     // this method overide the save method 
     //in order to used mock service 
-    save: function(){
+    save: function(query){
         alert("Going to save it");
     }
 });

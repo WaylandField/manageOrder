@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 /** config **/
-app.use('/web', express.static(__dirname+'/web'));
+app.use('/', express.static(__dirname+'/web'));
 
 app.use(express.logger());
 app.use(express.bodyParser());

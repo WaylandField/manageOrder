@@ -8,7 +8,7 @@ app.OrderCollection = Backbone.QueryCollection.extend({
     /**
      * this method was overided in order to use the mock service
      */
-    fetch: function(){
-        this.reset(MockData.getMockOrders());
+    fetch: function(query){
+        this.reset(MockData.getMockOrders(query));
     }
 });

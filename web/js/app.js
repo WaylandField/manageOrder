@@ -15,15 +15,15 @@ $(function(){
 
     //component interaction defined here to 
     //decouple the dependancy between different component
-    filterView.on("filterOrder", function(event){
-        if(event){
-            orderList.fetch(event.query);
+    filterView.on("filterOrder", function(query){
+        if(query){
+            orderList.fetch(query);
         }else{
             orderList.fetch();
         }
     });
-    filterView.on("createBatch", function(event){
-        batchModel.create(event.batch);
+    filterView.on("createBatch", function(batch){
+        batchModel.save(batch);
     });
     // create UI structure to 
     $('#mainArea').append(filterView.$el);

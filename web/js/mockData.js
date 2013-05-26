@@ -23,10 +23,14 @@ var MockData = {
     },
     getMockOrders:function(query){
         var pagesize = query&&query.batchSize?query.batchSize:30;
+        // mark to identify where was this query triggered 
+        var mark= "Basic filter";
+        query.asin&&(mark="ASIN filter");
+        (query.giftWrap||query.hazmat)&&(mark="Further refined filter");
         var result=[];
         for(var i=0;i<pagesize;i++){
             result.push({
-                name:'Sample order '+ i
+                name:'Sample order '+ i + " " +mark
             });
         }
         return result;
