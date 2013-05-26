@@ -3,6 +3,7 @@ var messages = {
     'orderStatus': 'Order status',
     'expectedDate' : 'Expected ship date',
     'expectedTime': 'Expected ship time',
+    'timeHelpTxt':'e.g. 17:00',
     'multiSingle':'Multi/Single items',
     'sioc':'SIOC',
     'fastTrack':'Fast track',
@@ -14,6 +15,6 @@ var messages = {
     'createBatch': 'Create a batch',
     'batchOnAsin':'Create a batch based on ASINs',
     'asin':'ASIN',
-    'userTopAsin': 'User top ASIN',
+    'useTopAsin': 'Use top ASIN',
     'orderName':'Order name'
 };

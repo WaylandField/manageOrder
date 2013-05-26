@@ -1,23 +1,34 @@
 $(function(){
     app = app||{};
-    //
+    // create View and Model for Filter
     var filterModel = new app.FilterModel();
     var filterView = new app.FilterView(
         {model: filterModel}
     );
+    // create View and Collection for order list
     var orderList = new app.OrderCollection();
     var orderListView = new app.OrderListView({
         collection:orderList
     });
-    //do query when click the filterOrder btn
-    filterView.on("filter filterAdv filterAsin", function(){
-        orderList.query(filterModel.getQuery());
-    });
-    filterView.on("filter filterAdv filterAsin", function(){
-        orderList.query(filterModel.getQuery());
-    });
+    // create batch model for send creating batch request to backend
+    var batchModel= new app.BatchModel();
 
-    //render filter and order list UIs
-    $('#mainArea').append(filterView.render().$el);
-    $('#mainArea').append(orderListView.render().el);
+    //component interaction defined here to 
+    //decouple the dependancy between different component
+    filterView.on("filterOrder", function(event){
+        if(event){
+            orderList.fetch(event.query);
+        }else{
+            orderList.fetch();
+        }
+    });
+    filterView.on("createBatch", function(event){
+        batchModel.create(event.batch);
+    });
+    // create UI structure to 
+    $('#mainArea').append(filterView.$el);
+    $('#mainArea').append(orderListView.$el);
+
+    //Fetch data by rest call, the update UI on Model changed
+    filterModel.fetch();
 });
