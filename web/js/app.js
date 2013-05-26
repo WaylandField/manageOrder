@@ -1,4 +1,4 @@
-$(function(){
+function AppStart(){
     app = app||{};
     // create View and Model for Filter
     var filterModel = new app.FilterModel();
@@ -31,4 +31,8 @@ $(function(){
 
     //Fetch data by rest call, the update UI on Model changed
     filterModel.fetch();
+}
+
+$(function(){
+    AppStart();
 });
